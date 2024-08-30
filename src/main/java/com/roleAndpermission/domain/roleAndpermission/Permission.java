@@ -2,6 +2,7 @@ package com.roleAndpermission.domain.roleAndpermission;
 import com.roleAndpermission.domain.baseEntity.BaseEntity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -29,7 +30,7 @@ public class Permission extends BaseEntity {
     private String name;
     private String module;
 
-    @OneToMany(mappedBy = "permission")
-    private List<Role_Permission> rolePermissions;
+    @OneToMany(mappedBy = "permission",fetch = FetchType.LAZY)
+    private Set<Role_Permission> rolePermissions = new HashSet<>();
     
 }

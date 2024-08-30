@@ -24,7 +24,7 @@ public class Role_Permission extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Role role;
 
     @ManyToOne(fetch = FetchType.LAZY)

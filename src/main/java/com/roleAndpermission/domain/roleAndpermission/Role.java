@@ -1,10 +1,7 @@
 package com.roleAndpermission.domain.roleAndpermission;
-import java.util.List;
-
+import java.util.*;
 import com.roleAndpermission.domain.baseEntity.BaseEntity;
-
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -16,7 +13,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="Role")
+@Table(name="roles")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -29,8 +26,8 @@ public class Role extends BaseEntity{
     private String name;
 
     @OneToMany(mappedBy = "role")
-    private List<User> users;
+    private Set<User> users = new HashSet<>();
 
-    @OneToMany(mappedBy = "role",fetch = FetchType.LAZY)
-    private List<Role_Permission> rolePermissions;
+    @OneToMany(mappedBy = "role")
+    private Set<Role_Permission> rolePermissions = new HashSet<>();
 }

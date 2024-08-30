@@ -1,5 +1,7 @@
 package com.roleAndpermission.mapper.user;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -16,6 +18,10 @@ public interface UserMapper{
     @Mapping(target = "name",source = "permission.name")
     @Mapping(target = "code",source = "permission.code")
     @Mapping(target = "module",source = "permission.module")
+    @Mapping(target = "id",source = "permission.id")
     PermissionResponse fromPermissionResponse(Role_Permission role_Permission);
+
+
+    List<UserResponse> fromUserList(List<User> usrs);
     
 }

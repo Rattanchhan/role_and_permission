@@ -1,8 +1,8 @@
 package com.roleAndpermission.feature.user.dto;
-
-import org.springframework.stereotype.Service;
+import java.util.*;
 
 public interface UserServices {
 
-    UserResponse getAllUser(Long id);
+    UserResponse getUser(Long id);
+    List<UserResponse> getAllUsers();
 }

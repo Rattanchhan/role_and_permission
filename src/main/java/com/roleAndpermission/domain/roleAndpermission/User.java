@@ -30,6 +30,6 @@ public class User extends BaseEntity{
     private String phone;
     private String email;
 
-    @ManyToOne(fetch =FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Role role;
 }
